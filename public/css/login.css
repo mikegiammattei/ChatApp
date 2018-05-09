@@ -222,4 +222,21 @@ footer .container .text-muted {
     padding-left: 15px;
 }
 
+.btn-facebook{
+    background-color: #4aa1f3;
+    border-radius:0;
+    color: #ffffff;
+    width: 100px;
+}
+.btn-facebook:link,.btn-facebook:visited{
+    color:#ffffff;
+    text-decoration: none;
+    background-color: #4aa1f3;
+}
+.btn-facebook:active,.btn-facebook:hover{
+    color:#ffffff;
+    text-decoration: none;
+    background-color: #4aa1f3;
+}
+
 

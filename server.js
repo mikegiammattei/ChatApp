@@ -9,6 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const passport = require('passport');
+const fs = require('fs');
 
 
 const container = require('./container');
@@ -22,6 +23,8 @@ container.resolve(function (users,_) {
     const app = SetupExpress();
 
     function SetupExpress() {
+
+
         const app  = express();
         const server = http.createServer(app);
         server.listen(3000,function () {
@@ -39,7 +42,7 @@ container.resolve(function (users,_) {
 
     function ConfigureExpress(app) {
         require('./passport/passport-local');
-
+        require('./passport/passport-facebook');
 
         app.use(express.static('public'));
         app.use(cookieParser());
