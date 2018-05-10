@@ -1,21 +1,21 @@
 'use strict';
 
-const passports = require('passport');
+const passport = require('passport');
 const User = require('../models/user');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const secret = require('../secret/secretFile');
 
-passports.serializeUser((user,done) => {
+passport.serializeUser((user,done) => {
     done(null, user.id);
 });
 
-passports.deserializeUser((id, done) => {
+passport.deserializeUser((id, done) => {
     User.findById(id, (err, user) => {
         done(err, user);
     });
 });
 
-passports.use( new FacebookStrategy({
+passport.use( new FacebookStrategy({
     clientID: secret.facebook.clientID,
     clientSecret: secret.facebook.clientSecret,
     profileFields:  ['email','displayName','photos'],
@@ -36,11 +36,11 @@ passports.use( new FacebookStrategy({
             newUser.facebook = profile.id;
             newUser.fullname = profile.displayName;
             newUser.email = profile._json.email;
-            newUser.userImage = 'https://graph.facebook.com/' + profile.id + 'picture?type-large';
+            newUser.userImage = 'https://graph.facebook.com/' + profile.id + 'picture?type=large';
             newUser.fbTokens.push({token: token});
 
             newUser.save((err) => {
-                return done(null, user);
+                 done(null, newUsers);
             });
 
         }

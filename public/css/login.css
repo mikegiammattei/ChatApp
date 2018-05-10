@@ -81,7 +81,7 @@ form:before {
     /*border-top: 1px solid #000;*/
 }
 
-form h1 {
+form .social-btn {
     text-align: center;
     padding: 18px 0;
     border-bottom: 1px solid #e7e7e7;
@@ -90,7 +90,7 @@ form h1 {
 }
 
 
-form h1 {
+form .social-btn  {
     color: #4aa1f3;
     /*text-shadow: 0 1px 0 #000;*/
     font-size: 35px;
@@ -101,7 +101,7 @@ form h1 {
     position: relative;
 }
 
-form h1 span {
+form .social-btn  span {
     padding: 5px;
     background: #0184ff;
 }
@@ -237,6 +237,22 @@ footer .container .text-muted {
     color:#ffffff;
     text-decoration: none;
     background-color: #4aa1f3;
+}
+.btn-gplus{
+    background-color: #e44b34;
+    border-radius:0;
+    color: #ffffff;
+    width: 100px;
+}
+.btn-gplus:link,.btn-gplus:visited{
+    color:#ffffff;
+    text-decoration: none;
+    background-color: #e44b34;
+}
+.btn-gplus:active,.btn-gplus:hover{
+    color:#ffffff;
+    text-decoration: none;
+    background-color: #e44b34;
 }
 
 

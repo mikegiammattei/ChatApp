@@ -1,20 +1,20 @@
 'use strict';
 
-const passports = require('passport');
+const passport = require('passport');
 const User = require('../models/user');
 const LocalStrategy = require('passport-local').Strategy;
 
-passports.serializeUser((user,done) => {
+passport.serializeUser((user,done) => {
     done(null, user.id);
 });
 
-passports.deserializeUser((id, done) => {
+passport.deserializeUser((id, done) => {
     User.findById(id, (err, user) => {
         done(err, user);
     });
 });
 
-passports.use('local.signup',  new LocalStrategy({
+passport.use('local.signup',  new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
@@ -43,7 +43,7 @@ passports.use('local.signup',  new LocalStrategy({
 
 }));
 
-passports.use('local.login',  new LocalStrategy({
+passport.use('local.login',  new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
